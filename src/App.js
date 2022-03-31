@@ -193,9 +193,7 @@ event.preventDefault();
       
           <h1>   <h1> Teodorant Insanity Topic Simulator </h1>    </h1>
       
-     <div>  <h1> Paloki </h1>   
-     
-     <label> Paloki  </label>
+     <div> 
 
      <div class>     <div><h1>Question:</h1> {question} </div>  <div><b><h1>Scores:</h1> {scores} </b></div>     <div><h1>Answers:</h1>  {answers} </div> 
      </div>
