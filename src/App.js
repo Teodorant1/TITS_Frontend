@@ -203,8 +203,8 @@ function handlepaloki1 (event)
       
           <h1>   <h1> Teodorant Insanity Topic Simulator </h1>    </h1>
       
-     <div>  <head> <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> </meta>
- </head>
+     <div>  <MetaTags> <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> </meta>
+ </MetaTags>
 
      <div class>     <div><h1>Question:</h1> {question} </div>  <div><b><h1>Scores:</h1> {scores} </b></div>     <div><h1>Answers:</h1>  {answers} </div> 
      </div>
