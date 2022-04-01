@@ -21,9 +21,9 @@ function App (props) {
  
   const [expansion, setexpansion] = useState("all");
 
-  const [paloki, setpaloki] = useState("LAWL");
+  const [paloki, setpaloki] = useState("LAWL1");
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('http://localhost:8001/Paloki');
+  const [ipAddress, setipAddress] = useState('http://45.77.202.154:8001');
  
 
 
@@ -170,11 +170,21 @@ event.preventDefault();
 { setInterval(()=> { handleThing() }, 1000 ) } 
 
 }
+
+function handlepaloki1 (event)
+{ 
+  event.preventDefault();
+
+  const text1 = document.getElementById('Answer').value;
+
+  axios.post(  ipAddress, text1)
+    .catch(error=> console.log(error) );
+ 
+}
   const handleThing  = async() => { 
 
-  const text1 = document.getElementById('exampleInputEmail1').value;
-  console.log("lol")
-  console.log(text1)
+  const text1 = document.getElementById('Answer').value;
+ 
  axios.post("http://localhost:8001/paloki", text1)
  .then( 
          
@@ -193,9 +203,8 @@ event.preventDefault();
       
           <h1>   <h1> Teodorant Insanity Topic Simulator </h1>    </h1>
       
-     <div>  <h1> Paloki </h1>   
-     
-     <label> Paloki  </label>
+     <div>  <head> <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> </meta>
+ </head>
 
      <div class>     <div><h1>Question:</h1> {question} </div>  <div><b><h1>Scores:</h1> {scores} </b></div>     <div><h1>Answers:</h1>  {answers} </div> 
      </div>
@@ -221,7 +230,9 @@ event.preventDefault();
   <button 
   onClick={handlecReate}
   type="submit" class="btn btn-primary">Create game</button>
-
+<button 
+  onClick={handlepaloki1}
+  type="submit" class="btn btn-primary">Super Secret Action</button>
 
 <label htmlFor="GAMEID"><h1>GAMEID</h1></label>
 <input type="password" className="form-control" id="GAMEID" />
@@ -298,7 +309,7 @@ event.preventDefault();
 
   </div> </div>
   
-  <div> {gameid} {gamepassword} {playername} {playerpassword}  </div>
+  <div> {gameid} {gamepassword} {playername} {playerpassword}{text2}  </div>
    </div>
   );}
 
