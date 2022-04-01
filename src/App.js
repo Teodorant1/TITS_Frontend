@@ -23,7 +23,11 @@ function App (props) {
 
   const [paloki, setpaloki] = useState("LAWL1");
   const [delimiter, setdelimiter] = useState("spergzilion");
+<<<<<<< HEAD
   const [ipAddress, setipAddress] = useState('http://45.77.202.154:8001');
+=======
+  const [ipAddress, setipAddress] = useState('http://45.77.202.154:8001/Paloki');
+>>>>>>> b6d45180218458847811ed8f51ed0a2b381a0ff1
  
 
 
@@ -203,8 +207,12 @@ function handlepaloki1 (event)
       
           <h1>   <h1> Teodorant Insanity Topic Simulator </h1>    </h1>
       
+<<<<<<< HEAD
      <div>  <head> <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> </meta>
  </head>
+=======
+     <div> 
+>>>>>>> b6d45180218458847811ed8f51ed0a2b381a0ff1
 
      <div class>     <div><h1>Question:</h1> {question} </div>  <div><b><h1>Scores:</h1> {scores} </b></div>     <div><h1>Answers:</h1>  {answers} </div> 
      </div>
