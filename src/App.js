@@ -23,7 +23,7 @@ function App (props) {
 
   const [paloki, setpaloki] = useState("LAWL1");
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('http://45.77.202.154:8001');
+  const [ipAddress, setipAddress] = useState('http://167.71.79.230:8001');
  
 
 
