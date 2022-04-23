@@ -23,7 +23,7 @@ function App (props) {
 
   const [paloki, setpaloki] = useState("LAWL1");
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('http://45.77.202.154:8001');
+  const [ipAddress, setipAddress] = useState('http://localhost:8001');
  
 
 
@@ -202,14 +202,15 @@ function handlepaloki1 (event)
     <div className="App">
       
           <h1>   <h1> Teodorant Insanity Topic Simulator </h1>    </h1>
-      
-     <div>  <head> <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> </meta>
- </head>
 
+          <img src='https://i.imgur.com/91gg3HR.png'/>
+      
+     <div>  
      <div class>     <div><h1>Question:</h1> {question} </div>  <div><b><h1>Scores:</h1> {scores} </b></div>     <div><h1>Answers:</h1>  {answers} </div> 
      </div>
      
      <div class="flex-container">  
+       
        
        
    <form>
@@ -309,7 +310,8 @@ function handlepaloki1 (event)
 
   </div> </div>
   
-  <div> {gameid} {gamepassword} {playername} {playerpassword}{text2}  </div>
+  <div> <img
+       src='https://images.saatchiart.com/saatchi/1250137/art/6241761/5311535-HSC00002-7.jpg'/>{gameid} {gamepassword} {playername} {playerpassword}{text2}  </div>
    </div>
   );}
 
