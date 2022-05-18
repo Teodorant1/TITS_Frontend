@@ -366,12 +366,14 @@ type="submit" class="btn btn-primary">Super Secret Action</button>
 
 </div> }
 
- return  <div className='MatchInfo'>  
+ return  <div
+ 
+ className='MatchInfo'>  
  <div >
     
-  <div class="flex-container bg-light p-2 text-dark bg-opacity-75"><h1>Question:{question}</h1>  </div>
-  <div class="flex-container bg-light p-2 text-dark bg-opacity-75" ><h1>{judge} </h1>  </div> 
- <Answer  handleAnswer={handleAnswer}/>
+  <div style={{margin:20}} class="flex-container bg-light p-2 text-dark bg-opacity-75"><h1>Question:{question}</h1>  </div>
+  <div style={{margin:20}} class="flex-container bg-light p-2 text-dark bg-opacity-75" ><h1>{judge} </h1>  </div> 
+ <Answer   handleAnswer={handleAnswer}/>
 <div class="flex-container"> <table  className='table'> 
    
 
