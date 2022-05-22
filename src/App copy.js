@@ -51,21 +51,16 @@
     
      </table> </div> 
 
+
+
+
+
+
      <div> <form>
   <div class="form-group">
     <label htmlFor="Answer">  <h1> Answer </h1>  </label>
     <input type="text" className="form-control" id="Answer" />
-     </div>
-
-
-  
-
-  <button 
-
-  onClick={handleAnswer}
-  type="submit" class="btn btn-primary"> Send Answer
-  </button>
-</form>  </div>     
+     </div>  <button onClick={handleAnswer}   type="submit" class="btn btn-primary"> Send Answer   </button> </form>  </div>    
      
        
    <form>

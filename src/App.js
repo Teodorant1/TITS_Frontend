@@ -6,6 +6,7 @@ import React from 'react';
 import { useState } from 'react';
 import {Button} from "bootstrap";
 import {Answer} from './answer'
+import {Gameinfo} from './gameinfo';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
@@ -13,12 +14,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function App (props) {
+  
 
-  const [text2, setText2] = useState("placeholder 1");
-  const [question, setquestion] = useState("placeholder 2");
-  const [answers, setanswers] = useState("placeholder 3");
-  const [scores, setscores] = useState("placeholder 4");
 
+  
   const [gamepassword, setgamepassword] = useState(" placeholder 5 ");
 
   const [gameid, setgameid] = useState(" placeholder 5 ");
@@ -29,12 +28,14 @@ function App (props) {
   const [expansion, setexpansion] = useState("all");
 
   const [paloki, setpaloki] = useState("invisible");
+  const [paloki1, setpaloki1] = useState("visible");
+
   const [delimiter, setdelimiter] = useState("spergzilion");
   const [ipAddress, setipAddress] = useState('http://localhost:8001');
   
   const [page, setpage] = useState("instructions");
   
-  const [judge, setjudge] = useState(" The name of judge will appear here")
+
 
 
   const [players, setplayers] = useState(
@@ -47,33 +48,18 @@ function App (props) {
  
 
 
-
-
-  function Row ( {textorio , textorio1 } )
-  {  return (<div>  {textorio} {textorio1}  <button onClick={handleVote} type="submit" class="btn btn-primary">Paloki</button>  </div> ) }
-  
-  function Rowlist (propz) {
-  
-    const listItems = propz.value.map((thing) =>
-      <Row key={thing.toString()}
-                textorio={thing} />);
-    return (
-      <ul>
-        {listItems}
-      </ul>
-    );
-  }
-
-
- 
+  async function handleEnterbutton1 (event)
+  { 
+    setpaloki("visible");
+    setpaloki1("invisible");
+    
+  };
 
 
 
 
 
-
-
-   async function handlesetPlayerInfo(event)
+     async function handlesetPlayerInfo(event)
    { event.preventDefault();
      const theGAMEid = document.getElementById('GAMEID').value;
      const thegamepassword = document.getElementById('Game Password').value;
@@ -90,45 +76,7 @@ function App (props) {
     console.log('PLAYER INFO UPDATED!')}
 
     
-    function handleVote2  ( text )
-    {
-      console.log("in handle vote",text);
-     const votetarget = text;
-  
-    const votemessage = 'existinggame'+delimiter+
-  'vote'+delimiter+gameid+delimiter+playername+delimiter
-  +votetarget+delimiter+"payload2"+delimiter+playerpassword
-  +delimiter+ gamepassword;
-  axios.post(ipAddress,votemessage).then( 
-           
-    (resp) => {
-    // console.log(resp.data);
-    }
-   
-  )
-  .catch(error=> console.log(error) );
-  
-    }
- 
-    function handleVote  (event)
-  {
-    event.preventDefault();
-    const votetarget = document.getElementById('Vote Target').value;
-
-  const votemessage = 'existinggame'+delimiter+
-'vote'+delimiter+gameid+delimiter+playername+delimiter
-+votetarget+delimiter+"payload2"+delimiter+playerpassword
-+delimiter+ gamepassword;
-axios.post(ipAddress,votemessage).then( 
-         
-  (resp) => {
-  //  console.log(resp.data);
-  }
- 
-)
-.catch(error=> console.log(error) );
-
-  }
+    
   function handleAnswer(event){
     
     console.log("handleanswer")
@@ -157,7 +105,7 @@ axios.post(ipAddress,answermessage).then(
  function handlejOin  (event) {
   event.preventDefault();
 setpage("1");
-setpaloki("visible");
+
 
 const joinmessage = 'existinggame'+delimiter+
 'addplayer'+delimiter+gameid+delimiter+playername+delimiter
@@ -172,13 +120,12 @@ axios.post(ipAddress,joinmessage).then(
 )
 .catch(error=> console.log(error) );
 
-setInterval(()=> { handleupdate() }, 15000 ) 
 }
 
 function handlecReate(event){ 
   event.preventDefault();
   setpage("1");
-  setpaloki("visible");
+  
 
   const createmessage = "creategame"+delimiter+gameid
   +delimiter+gamepassword+delimiter+expansion+delimiter
@@ -191,98 +138,27 @@ function handlecReate(event){
    
   )
   .catch(error=> console.log(error) );
-  setInterval(()=> { handleupdate() }, 15000 ) 
-}
-//////////////////
-const handleupdate = async() =>
-{
-
-
-
   
-  const getQs = 'existinggame'+delimiter+
-'getquestion'+delimiter+gameid+delimiter+playername+delimiter
-+"payload1"+delimiter+"payload2"+delimiter+playerpassword
-+delimiter+ gamepassword;
-const getjudges = 'existinggame'+delimiter+
-'getjudge'+delimiter+gameid+delimiter+playername+delimiter
-+"payload1"+delimiter+"payload2"+delimiter+playerpassword
-+delimiter+ gamepassword;
-const getresults = 'existinggame'+delimiter+
-'getresults'+delimiter+gameid+delimiter+playername+delimiter
-+"payload1"+delimiter+"payload2"+delimiter+playerpassword
-+delimiter+ gamepassword;
-
-
-
-axios.post(ipAddress,getQs).then( 
-         
-  (resp) => {
-    setquestion( resp.data)
-  //  console.log(resp.data);
-  }
- 
-)
-.catch(error=> console.log(error) )
-
-axios.post(ipAddress,getresults).then( 
-         
-  (resp) => {
-    setplayers(resp.data)
-   // console.log(resp.data);
-  }
- 
-)
-.catch(error=> console.log(error) )
-
-axios.post(ipAddress,getjudges).then( 
-         
-  (resp) => {
-    setjudge( resp.data)
-    //console.log(resp.data);  
-  }
- 
-)
-.catch(error=> console.log(error) )
-
-
 }
 
-  function  handlepaloki (event) {
-event.preventDefault();
-{ setInterval(()=> { handleThing() }, 1000 ) } 
-
-}
+ 
 
 function handlepaloki1 (event)
 { 
   event.preventDefault();
   
 
-  const text1 = document.getElementById('Answer').value;
+  const text1 = document.getElementById('expansion').value;
 
   axios.post(  ipAddress, text1)
     .catch(error=> console.log(error) );
  
 }
-  const handleThing  = async() => { 
-
-  const text1 = document.getElementById('Answer').value;
  
- axios.post("http://localhost:8001/paloki", text1)
- .then( 
-         
-       (resp) => {
-         setText2(resp.data)
-         //console.log(resp.data)
-         ;
-       }
-      
-     )
-     .catch(error=> console.log(error) )
-}
   function Instructionz ()
-  {  return <div class="p-3 mb-2 bg-info text-white">
+  {  return <div  class="p-3 mb-2 bg-info text-white">
+
+   
   <div class="flex-container" ><h1> Welcome to Teodorant Insanity Topic Simulator, this game is inspired by Forks in the timeline, so it basically plays like that minus the bonus cards.
     
     Rules: https://www.boardgamecapital.com/game_rules/forks-in-the-timeline.pdf</h1></div>
@@ -364,54 +240,26 @@ type="submit" class="btn btn-primary">Super Secret Action</button>
 </div> </div>
 
 
-</div> }
+</div> } 
 
- return  <div
+ return  <div className='MatchInfo'>  
+
+ <Gameinfo gameid1= {gameid} gamepassword1={gamepassword} playername1={playername} playerpassword1={playerpassword} visibility={paloki}  />
+
+ <div class="flex-container" >  <div class={paloki1} >  <button onClick={handleEnterbutton1} 
+ type="submit" class="btn btn-primary"> Summon the answer button and animations  </button>  </div> </div>
  
- className='MatchInfo'>  
- <div >
-    
-  <div style={{margin:20}} class="flex-container bg-light p-2 text-dark bg-opacity-75"><h1>Question:{question}</h1>  </div>
-  <div style={{margin:20}} class="flex-container bg-light p-2 text-dark bg-opacity-75" ><h1>{judge} </h1>  </div> 
- <Answer   handleAnswer={handleAnswer}/>
-<div class="flex-container"> <table  className='table'> 
+ 
+ <div class={paloki} >
+
    
 
-   <thead>
-     <tr>
-   <th> <div class="bg-light p-2 text-dark bg-opacity-75">Player</div>
- </th>
-   <th><div class="bg-light p-2 text-dark bg-opacity-75">Score</div></th>
-   <th><div class="bg-light p-2 text-dark bg-opacity-75">Answer</div></th>
-   <th></th>
-  
-   
-     </tr>
-   </thead>
-   <tbody> 
-         
-    {players.map( player =>( 
-     
-     
-   
-   <tr key = {player.name} >
-   <td> <div class="bg-light p-2 text-dark bg-opacity-75">{player.name } </div></td>
-   <td> <div class="bg-light p-2 text-dark bg-opacity-75">{player.points }</div> </td>
-   <td> <div class="bg-light p-2 text-dark bg-opacity-75">{player.response }</div></td>  
-   <td>  <button 
-   style={{color:"white" , backgroundColor: "red" }}
-   onClick={()=>{handleVote2(player.name)}}     
-   className="btn btn-danger btn-sm"> Upvote </button> </td>
-   </tr>
-     ))
-   }
-   </tbody>
-   
-    </table></div>
-   </div> 
-
- <div> 
-  </div>     
+ <div class="flex-container bg-light p-2 text-dark bg-opacity-75" > <form>
+  <div class="form-group">
+    <label htmlFor="Answer">  <h1> Answer </h1>  </label>
+    <input type="text" className="form-control" id="Answer" />
+     </div>  <button onClick={handleAnswer}   type="submit" class="btn btn-primary"> Send Answer   </button> </form>  </div>    
+   </div>     
  
  </div>}
 
