@@ -14,7 +14,7 @@ import {useState} from 'react';
   const [playername, setplayername] = useState(playername1);
   const [playerpassword, setplayerpassword] = useState(playerpassword1);
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('http://149.28.229.133:8001'); 
+  const [ipAddress, setipAddress] = useState('https://149.28.229.133:8001/'); 
   const [judge, setjudge] = useState(" The name of judge will appear here");
   const [toggleteleport, settoggleteleport] = useState("visible");
   const [toggletable, settoggletable] = useState("invisible");
@@ -40,9 +40,7 @@ import {useState} from 'react';
   +delimiter+ gamepassword;
   axios.post(ipAddress,votemessage).then( 
            
-    (resp) => {
-    // console.log(resp.data);
-    }
+
    
   )
   .catch(error=> console.log(error) );
@@ -60,9 +58,7 @@ import {useState} from 'react';
 +delimiter+ gamepassword;
 axios.post(ipAddress,votemessage).then( 
          
-  (resp) => {
-  //  console.log(resp.data);
-  }
+
  
 )
 .catch(error=> console.log(error) );
@@ -93,7 +89,6 @@ axios.post(ipAddress,getQs).then(
          
   (resp) => {
     setquestion( resp.data)
-  //  console.log(resp.data);
   }
  
 )

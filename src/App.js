@@ -31,7 +31,7 @@ function App (props) {
   const [paloki1, setpaloki1] = useState("visible");
 
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('http://149.28.229.133:8001');
+  const [ipAddress, setipAddress] = useState('https://149.28.229.133:8001/'); 
   
   const [page, setpage] = useState("instructions");
   
@@ -92,9 +92,7 @@ function App (props) {
 
 axios.post(ipAddress,answermessage).then( 
          
-  (resp) => {
-   console.log(resp.data);
-  }
+
  
 )
 .catch(error=> console.log(error) );
@@ -113,9 +111,7 @@ const joinmessage = 'existinggame'+delimiter+
 +delimiter+ gamepassword;
 axios.post(ipAddress,joinmessage).then( 
          
-  (resp) => {
- //   console.log(resp.data);
-}
+
  
 )
 .catch(error=> console.log(error) );
@@ -132,9 +128,7 @@ function handlecReate(event){
   + playername +delimiter+playerpassword;
   axios.post(  ipAddress, createmessage).then( 
          
-    (resp) => {
-    //  console.log(resp.data);
-    }
+
    
   )
   .catch(error=> console.log(error) );
