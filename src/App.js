@@ -31,7 +31,7 @@ function App (props) {
   const [paloki1, setpaloki1] = useState("visible");
 
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('https://149.28.229.133:8001/'); 
+  const [ipAddress, setipAddress] = useState('https://104.238.129.239:8001/'); 
   
   const [page, setpage] = useState("instructions");
   
