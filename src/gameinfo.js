@@ -14,7 +14,7 @@ import {useState} from 'react';
   const [playername, setplayername] = useState(playername1);
   const [playerpassword, setplayerpassword] = useState(playerpassword1);
   const [delimiter, setdelimiter] = useState("spergzilion");
-  const [ipAddress, setipAddress] = useState('https://teodorantinsanitytopicsimulator.com/game'); 
+  const [ipAddress, setipAddress] = useState('https://teodorantinsanitytopicsimulator.com/:443'); 
   const [judge, setjudge] = useState(" The name of judge will appear here");
   const [toggleteleport, settoggleteleport] = useState("visible");
   const [toggletable, settoggletable] = useState("invisible");
