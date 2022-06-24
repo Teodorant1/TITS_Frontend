@@ -154,7 +154,7 @@ function handlepaloki1 (event)
   {  return <div  class="p-3 mb-2 bg-info text-white">
 
    
-  <div class="flex-container" ><h1> Welcome to Teodorant Insanity Topic Simulator v4, this game is inspired by Forks in the timeline, so it basically plays like that minus the bonus cards.
+  <div class="flex-container" ><h1> Welcome to Teodorant Insanity Topic Simulator v5, this game is inspired by Forks in the timeline, so it basically plays like that minus the bonus cards.
     
     Rules: https://www.boardgamecapital.com/game_rules/forks-in-the-timeline.pdf</h1></div>
 
